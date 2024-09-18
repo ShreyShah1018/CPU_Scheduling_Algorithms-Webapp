@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/Santosh Gupta/Desktop/Project2.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/OSProject_CPU/Export.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=OSProject_CPU/src&lt;{MainFrame.java[MainFrame" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/OSProject_CPU/RR.txt"/>
+        <javaElement handleIdentifier="=OSProject_CPU/src"/>
+        <file path="/OSProject_CPU/.classpath"/>
+        <file path="/OSProject_CPU/PS.txt"/>
+        <file path="/OSProject_CPU/AlgoSimHis.txt"/>
+        <file path="/OSProject_CPU/SJF.txt"/>
+        <file path="/OSProject_CPU/.project"/>
+        <file path="/OSProject_CPU/README.md"/>
+        <file path="/OSProject_CPU/FCFS.txt"/>
+    </selectedElements>
+</jardesc>

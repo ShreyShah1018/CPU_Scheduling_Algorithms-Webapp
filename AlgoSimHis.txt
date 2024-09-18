@@ -1,0 +1,6 @@
+0,FCFS
+1,SJF
+2,SRTF
+0,PS
+0,PSPR
+0,RR
