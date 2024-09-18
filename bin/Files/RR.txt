@@ -1,0 +1,18 @@
+Round Robin
+In Round-robin scheduling, each ready task runs turn by turn only in a cyclic queue for a limited time slice, this limited time slice is also called time quanta. This algorithm also offers starvation free execution of processes.
++
+Here, are pros/benefits of Round-robin scheduling method:
+1. It doesn’t face the issues of starvation or convoy effect.
+2. It gives the best performance in terms of average response time.
+3. It deals with all process without any priority
+4. If you know the total number of processes on the run queue, then you can also assume the worst-case response time for the same process.
+5. This scheduling method does not depend upon burst time. That’s why it is easily implementable on the system.
+6. Allows OS to use the Context switching method to save states of preempted processes.
+-
+Here, are drawbacks/cons of using Round-robin scheduling:
+1. This method spends more time on context switching
+2. Its performance heavily depends on time quantum.
+3. Priorities cannot be set for the processes.
+4. Round-robin scheduling doesn’t give special priority to more important tasks.
+5. Lower time quantum results in higher the context switching overhead in the system.
+6. Finding a correct time quantum is a quite difficult task in this system.
