@@ -1,0 +1,16 @@
+First Come First Serve
+First Come First Serve (FCFS) is an operating system scheduling algorithm that automatically executes queued requests and processes in order of their arrival. It is the easiest and simplest CPU scheduling algorithm. In this type of algorithm, processes which requests the CPU first get the CPU allocation first. This is managed with a FIFO queue. The full form of FCFS is First Come First Serve.
+
++
+Here, are pros/benefits of using FCFS scheduling algorithm:
+1. The simplest form of a CPU scheduling algorithm
+2. Easy to program
+3. First come first served
+    
+-
+Here, are cons/ drawbacks of using FCFS scheduling algorithm:
+1. It is a Non-Preemptive CPU scheduling algorithm, so after the process has been allocated to the CPU, it will never release the CPU until it finishes executing.
+2. The Average Waiting Time is high.
+3. Short processes that are at the back of the queue have to wait for the long process at the front to finish.
+4. Not an ideal technique for time-sharing systems.
+5. Because of its simplicity, FCFS is not very efficient.
