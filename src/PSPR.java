@@ -1,0 +1,111 @@
+import java.util.ArrayList;
+
+public class PSPR extends Algorithm {
+	int currentTime = 0, higestPriority = 999;
+	int[] currentTiming;
+	int turnAroundTime, waitTime, completionTime, startingTime;
+	ArrayList<String> chart;
+	ArrayList<process> processList;
+
+	/*
+	 * Time Complexity: n^2
+	 * where n = no. of processes
+	 */
+	PSPR(ArrayList<process> processList) {
+		this.processList = processList;
+		int processExe = 0;// ---> Number of processes executed
+		int totalProcesses = processList.size();// ---> Total number of processes to be executed
+		int processIndex = 0;// ---> Index of the processes
+		chart = new ArrayList<String>();
+
+		/* Sorting the process according to arrival time
+		 * using: QuickSort (fastest sorting algorithm)
+		 * timeComplexity: nLog(n), nLog(n), n^2;
+		 * best, average, worst time complexity respectively
+		 */
+		sort(processList, 0, totalProcesses-1);
+		
+
+		/* Step 2: Selection of which process to be run sequentially and displaying
+		 * their process id, current time and remaining burst time
+		 * Time Complexity: O(n^2) 
+		 * where n = no. of processes
+		 */
+		while (processExe != totalProcesses) {
+			higestPriority = 999;
+			int prevIndex = processIndex;
+			for (process p : processList) {
+				// check if process is not completed and if the process has arrived
+				if (p.arrival <= currentTime && p.completed == false) {
+					// condition to select the process with minimum burst time so far
+					if (p.priority < higestPriority) {
+						higestPriority = p.priority;
+						processIndex = processList.indexOf(p);
+						prevIndex = -1;
+					}
+				}
+			}
+
+			/* Condition to check that CPU is idle or not
+			 * if idle then prevIndex == processIndex
+			 * and processIndex != -1 if the arrival time of first process is > 0
+			 */
+			if (prevIndex != processIndex && processIndex != -1) {
+				startingTime = currentTime;
+
+				// Increments the Current time after execution selected process
+				currentTime += 1;
+				processList.get(processIndex).remaining -= 1;
+				
+				if(processList.get(processIndex).remaining == 0) {
+					// calculate the completionTime, turnAroundTime and WaitTime for the process
+					processList.get(processIndex).completionTime = currentTime;
+					processList.get(processIndex).turnAroundTime = processList.get(processIndex).completionTime - processList.get(processIndex).arrival;
+					processList.get(processIndex).waitTime = processList.get(processIndex).turnAroundTime - processList.get(processIndex).burst;
+					
+					// set value of completed and increase the no. of process executed
+					processList.get(processIndex).completed = true;
+					processExe += 1;
+				}
+				
+				// add it chart (required to make the gantt chart)
+				chart.add(currentTime + "," + processList.get(processIndex).name);
+			}
+			/* else part executes when no process is available for execution
+			 * CPU is IDLE. And time is incremented by 1 and CPU stays idle for that time
+			 * until a process is available for execution
+			 */ 
+			else {
+				currentTime+=1;
+				chart.add(currentTime + ",idle");
+			}
+		}
+	}
+	
+	// returns chart (i.e. ArrayList<String> object)
+	public String[] getChart() {
+		// converts ArrayList to Array of String
+		String ganttChart[] = chart.toArray(new String[chart.size()]);
+		return ganttChart;
+	}
+	
+	@Override
+	public float getTurnAroundTime() {
+		float TAT = 0;
+		for(process p: processList) {
+			TAT += p.turnAroundTime;
+		}
+		TAT = TAT/processList.size();
+		return TAT;
+	}
+
+	@Override
+	public float getWaitTime() {
+		float WT = 0;
+		for(process p: processList) {
+			WT += p.waitTime;
+		}
+		WT = WT/processList.size();
+		return WT;
+	}
+}
