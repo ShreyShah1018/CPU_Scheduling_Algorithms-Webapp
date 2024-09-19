@@ -1,0 +1,18 @@
+Shortest Job First
+Shortest Job First (SJF) is an algorithm in which the process having the smallest execution time is chosen for the next execution. This scheduling method can be preemptive or non-preemptive. It significantly reduces the average waiting time for other processes awaiting execution. The full form of SJF is Shortest Job First.
++
+Here are the benefits/pros of using SJF method:
+1. It reduces the average waiting time over FIFO (First in First Out) algorithm.
+2. SJF method gives the lowest average waiting time for a specific set of processes.
+3. For the batch system of long-term scheduling, a burst time estimate can be obtained from the job description.
+4. For Short-Term Scheduling, we need to predict the value of the next burst time.
+5. Probably optimal with regard to average turn-around time.
+
+-
+Here are some drawbacks/cons of SJF algorithm:
+1. Job completion time must be known earlier, but it is hard to predict.
+2. SJF can’t be implemented for CPU scheduling for the short term.
+3. This algorithm may cause very long turn-around times or starvation.
+4. Requires knowledge of how long a process or job will run.
+5. It is hard to know the length of the upcoming CPU request.
+6. Elapsed time should be recorded, that results in more overhead on the processor.
